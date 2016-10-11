@@ -1,0 +1,42 @@
+apply plugin: 'maven'
+apply plugin: 'groovy'
+
+group = 'com.wijdemans'
+archivesBaseName = 'valueobjects'
+description = 'Simple value objects library'
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    libraries = [:]
+    versions = [:]
+}
+
+versions += [
+        slf4j : '1.7.18',
+        spock : '1.0-groovy-2.4',
+        groovy: '2.4.6'
+]
+
+libraries.logging = [
+        "org.slf4j:log4j-over-slf4j:$versions.slf4j",
+]
+
+libraries.testframework = [
+        "org.spockframework:spock-core:$versions.spock",
+        "org.codehaus.groovy:groovy:$versions.groovy"
+]
+
+dependencies {
+    compile libraries.logging
+    compile libraries.testframework
+}
+
