@@ -1,9 +1,19 @@
+group = 'com.wijdemans'
+description = 'Simple value objects library'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.owasp:dependency-check-gradle:1.4.4'
+    }
+}
+
+apply plugin: "org.owasp.dependencycheck"
 apply plugin: 'maven'
 apply plugin: 'groovy'
-
-group = 'com.wijdemans'
-archivesBaseName = 'valueobjects'
-description = 'Simple value objects library'
 
 compileJava {
     sourceCompatibility = 1.8
@@ -13,6 +23,13 @@ compileJava {
 repositories {
     mavenLocal()
     mavenCentral()
+}
+
+dependencyCheck {
+    autoUpdate = false
+    cveValidForHours = 4
+    failBuildOnCVSS = 1
+    format = "XML"
 }
 
 ext {
@@ -37,6 +54,6 @@ libraries.testframework = [
 
 dependencies {
     compile libraries.logging
-    compile libraries.testframework
+    testCompile libraries.testframework
 }
 
