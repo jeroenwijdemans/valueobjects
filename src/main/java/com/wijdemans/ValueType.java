@@ -24,8 +24,7 @@ public class ValueType<T extends Serializable> implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ValueType<?> valueType = (ValueType<?>) o;
-        if (!value.equals(valueType.value)) return false;
-        return true;
+        return value.equals(valueType.value);
     }
 
     @Override
