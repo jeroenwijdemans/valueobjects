@@ -21,12 +21,11 @@ jacoco {
    reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
-
 jacocoTestReport {
     reports {
         xml.enabled true
         csv.enabled false
-        xml.destination "${buildDir}/jacocoXml"
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
         html.destination "${buildDir}/jacocoHtml"
     }
 }
