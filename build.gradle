@@ -19,7 +19,7 @@ apply plugin: "jacoco"
 
 
 jacoco {
-   reportsDir = file("$buildDir/customJacocoReportDir")
+    reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
 jacocoTestReport {
@@ -134,5 +134,20 @@ uploadArchives {
                 }
             }
         }
+    }
+}
+
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.allTasks.any { it instanceof Sign }) {
+        def id = System.getenv("GPG_KEY_NAME")
+        def password = System.getenv("GPG_PASSPHRASE")
+        def ossrhUsername = System.getenv("OSSRH_JIRA_USERNAME")
+        def ossrhPassword = System.getenv("OSSRH_JIRA_PASSWORD")
+
+        allprojects { ext."ossrhUsername" = ossrhUsername }
+        allprojects { ext."ossrhPassword" = ossrhPassword }
+        allprojects { ext."signing.keyId" = id }
+        allprojects { ext."signing.password" = password }
     }
 }
