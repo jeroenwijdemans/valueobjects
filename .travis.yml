@@ -13,7 +13,8 @@ jdk:
   - oraclejdk8
 before_script:
   - chmod +x gradlew
-  - ./cd/before-deploy.sh
+install:
+  - ./cd/before-install.sh
 script:
   - ./gradlew check
   - ./gradlew test
