@@ -99,11 +99,11 @@ uploadArchives {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
+                authentication(userName: System.getenv("OSSRH_JIRA_USERNAME"), password: System.getenv("OSSRH_JIRA_PASSWORD"))
             }
 
             snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
+                authentication(userName: System.getenv("OSSRH_JIRA_USERNAME"), password: System.getenv("OSSRH_JIRA_PASSWORD"))
             }
 
             pom.project {
@@ -137,17 +137,14 @@ uploadArchives {
     }
 }
 
-
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
         def id = System.getenv("GPG_KEY_NAME")
         def password = System.getenv("GPG_PASSPHRASE")
-        def ossrhUsername = System.getenv("OSSRH_JIRA_USERNAME")
-        def ossrhPassword = System.getenv("OSSRH_JIRA_PASSWORD")
+        def signfile = System.getenv("GPG_SIGNFILE")
 
-        allprojects { ext."ossrhUsername" = ossrhUsername }
-        allprojects { ext."ossrhPassword" = ossrhPassword }
         allprojects { ext."signing.keyId" = id }
         allprojects { ext."signing.password" = password }
+        allprojects { ext."signing.secretKeyRingFile" = 'cd/codesigning.asc' }
     }
 }
