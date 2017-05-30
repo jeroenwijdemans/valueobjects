@@ -1,3 +1,38 @@
 language: java
+env:
+  global:
+    # OSSRH_JIRA_USERNAME
+    - secure: "GZea1W2TkFAiFCwiJEgQAqv9Ifg1o9e+fZcUR+oWhss+yMbG9Zw/JXtzrebtGKMYgigKVQa40SHbKW6sQZ24q50g9ZcHhcuS5VHHdQ03YmTS0jkEwr3UgiGbmwLtm/LhfdCMnqMp9JN7aEBm55GWkydOBNfEnXoc0wzSP7+fowlAf58kjUOJ73s8DJHUCHDeSg2wOPL9jn8g82Xzs1WhpL51N4aRcDiVTgA9uDUMxJnBit5oY9hLqn2DyruFNEZgAHEXkSQyNkjRHlkc5/72fG+bjpumqv+jl0xXNIJvM7sSwMKdQ+AW3+SE9uNMNDAKqIdWUPhyBDHM2eCeGsvPPx2uPGVrnEjse8JOOE5G+a8VOKb9aV0OzaDY+TtR6JHp5J7r/AbtfYX6oa3xJse7YouzHN9OyCWHOxhlpD8i3B2tO6n3DNrzbP/51elFzoz7rCJbWa5OpB1YEkrFc+Dcx58wcAi4ljXomRDdsbnRmmR3hv5/9EGRStD1AWWWDvgVT2alSGfXp0GYR9a1jVWgoNZQIDAnY+ix6EXBh1S88LTNWc2g0bnMhqSfLXPQwaQ9QoEfUI0MDgO0+Hp4vn+zZhj7tfE7osZo/ILhm/1WuwzDNofXcWca5vJJOZ6D5SaUtbpQr/u5+bu3kwniv1iwFBvT7Efw/OlXUd0jZJpJRvY="
+    # OSSRH_JIRA_PASSWORD
+    - secure: "M2hsE5JbU2F1wRO4va0KiIodj851aypZFx7yG1bj0ikYLOWXAfPyVx5Olp6t5/mL2PvZXsudt0mFcjDawaYbasM8PfE6pn94L08dOcR6zeoQS7qN/iskOL6ESWP7Pk9DGG+T0/YYCi+kEp69cvzlxz/c2DMktielev0QVKvy78fU88+4E0JAXFWUbY3GtQ+DyeZq/LpvHi/tbL0Zag/8VcNKm2fv+i7fNAHlPcpq+lF4Pwsvql3jhvBSFDvJD9/0S2Fm43Ts8Vqwj0inzeppjuHS2ODJ7eKG4UDFkc0ThpTBWJ1U++x7cvHZ5+oUl2r9iFAPtphZQ9E1hZUOThEElCxZwTXlEFmhh+otujzii0ICrgZfpbMkz7btzzSJzdZmidnRhyQZ4nPUDuPrDiPhF+0gNIMWMsRwkNWbiXgcb//YO8tC4gUbb+I059OShovugTB0whXdNuHArCR2a0miuNwtacG6shwo13Ka2NgTdZSzNUqUZantBtLMmEkseaE9MhvdXytcVcIRZyavKlIAYd6VR0jxFcNnPqn60llmT+5zap1mtx1bm41y3sbWpYXfdbNJqdXlqIxWH7egWXJo63vhP3rFl3R02ObheynVfQBWtHy92r7qgAODXPg92Qlk8zASBkILUPeqjM1a7XoMAVA1ONdnW9HtzNfcdlROqI4="
+    # GPG_KEY_NAME
+    -  secure: "dNl0HBfuPS2aKY5hw24kcTVqS/aZdtGeORVM7lTmYt0YoN4KnXLPLOET4C9UHpYOeaBQLQ7yZSg8kXmRmcBMBwX1t2HHNIx9vFjjdIacvU7hgEinhAHwYMxQ+bhfo7PiYuPMC8t3kOX6TqG6aYO97Bbo2EPF4EtwukU2JD2MgqSII+3PuWmLUhv9T3qtM24g50X0e/iE94+aiZrdWurqYQFAX1/pWTu1vA7VGGidyeNA53iOZ/QPXZyIlloGNoSgjZsbr4191Ai5NDtUPHJeFAS27YpBjGjmlk8IJlADk1JybYBuxR+FQJMko5NPQIHrQ1vFH1ceGS5w3bBWhuShT9z9fV6sqqfcPosUcAlNky00ooajAah9Vu/D8QBrZ0RXtkNz9eI4e7E5PgiJZszz9XdgBbae7NP4RRK20ksCJtjcn3w8F5/tLZdsygEuMtnhxJWJkh1JdCqYW4S7qZyktxPUV8iUfckevTQakIE9Kh23KXf/KR68pPxWYmUWPwQsToxWC1Fe3CGVeiw4SRoqijT7EQsjcxefFtMWAAi5cLhw5D7tX7ihxSyWsFcfBPo8GKjaP0twQE5Q/P1ZFU6//mSEfjF615mpF05lkkCS8yq7seNV4Km708KF//RQvX663mT9FUINjk6qIlcexwdpXF7huQAiwUjAiLoJhfOJAMI="
+    # GPG_PASSPHRASE
+    - secure: "ipuko5Q+YxM7rVe+c0gCRem7+UJmBSLD+ssNUuOM8qvx3bIf4/kt/HZhu0Z5Lkuil9mUM9VUhXbdIZfbU1pjf20L4MucbomyL6ZwD1W7dDfZ7O+WNA4wyb4DoIE6wsCkEZ7GAtHc2RRTstRxS3HJRGaHoB9idbUp6PnxjAMJNprSIm+MKmS0d492/mraXlFfICypnOOmeFBlCIJGwPHhbyryIXCFnNvziqDvuH3SPSX2JrLe7D6Euf9ZLFSJtN3t/hy9ESAhVYjOwZ1P4j0zGgDuwB9t1hf7/nzXIFz/OOi2XZbYAGlTv/VExzTPEgLrfrzKLehpPMeN/sbATI3nE/cl0gPb31nRk/W+AB+RgTj/OGyiCTwAca+3hPQm5Kir28RDuyesStFRdIBF1wkoU1Qx2tSS8PdSq67B7i5uqMGUH/B+h8SiuGxpi1DEB9ax6iMiGUxqSVqsZL/Yo0TrowVinwGohkNiLfiPqplNfkQmJ0TcNLnjJnDdXVSr+UnTTC5SDS929w2sDH5IujvESexpq3Zr3Nw/YqnoTvCm/D2L89tk/mEweu6+4HFi/xX6y5XUjsAUBAQGL8zmgW5PQWxSfNeGdX/ywBHEBy4lqM3eaTe+OtMcAfbPEnwsa1iks02Bwhor0ai2EZOsZ1jd9df7O4i0j3yHUdtyWlb7IiY="
 jdk:
   - oraclejdk8
+before_script:
+  - chmod +x gradlew
+install: true
+script:
+  - ./cd/test.sh
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+deploy:
+  - provider: script
+    script: ./cd/deploy.sh
+    on:
+      branch: master
+      tags: true
+  - provider: releases
+    api_key:
+      secure: "n3omZCwnEK4FQxqy8b1i6jOcOzFJzY4nLRDXKnQHKC/VfwmHFhRR7Q5duyTtifpX1rehjdxLC9iwbgkmDpNQs+CLKfKjbcCUUG297wSpFSrZCLecDN1njXwK7ZdFsiq+VNebCZzq0EVG6ZLxnOTqAht33dXEQmVi5eGtiYI899bVWrI6wXh7rva+HoiZIJC45gSYhSVByg6yQr8vNOwuYzmUMt1vNBUiy3sxgZmAwYdO3JEsN8N5uwZAow9lmAslAsfVYXPt6HqAHJ4YDgPtYE7CIOl8l2Z2H6n7mpiUhm8GqShc4mwxBeD2qM5qn1LYNdZH3xesevxPVMFbmXzxKR+DdmJGl+gpwSy6HgDF2c0GSsC3XpFYvXqhj9V/kcHG0AwhrCaxwAk46L9yQI5+u14ehg+DAnJcIbWdLyWxO41zNtj3RmJwjx+1DLx1oRGM585PPPjSK4Z7+XnqMWkf8UzDPp/Sfi0j/34w+mncJB3InS1g+mJQyXMO7Q4myhTNnC0/K/p/7EyfgCrhApfZX/kP27NQMmxF/yVspvXDsCu88zfp8UbTofUbqyvTOwLcelTPnvXWy9bzsqq62yHztTUGZsgTz6nJRrMkmKwPVi0xAvA6ktVSKGJuh3qm3rbqpcZKxGBB79qxIfDof8TlHMU3AiNE/AmI9V6zbXYcWLE="
+    file_glob: true
+    file:
+      - "build/libs/valueobjects-${VERSION}.jar"
+      - "build/libs/valueobjects-${VERSION}-javadoc.jar"
+      - "build/libs/valueobjects-${VERSION}-sources.jar"
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true

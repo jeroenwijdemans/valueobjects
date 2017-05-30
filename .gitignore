@@ -2,3 +2,5 @@
 .gradle/
 build/
 *.iml
+dependencies.txt
+cd/codesigning.asc
