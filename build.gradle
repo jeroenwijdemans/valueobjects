@@ -17,29 +17,9 @@ apply plugin: 'signing'
 apply plugin: 'groovy'
 apply plugin: "jacoco"
 
-task version {
-    doFirst {
-        println project.version
-    }
-}
-jacoco {
-    reportsDir = file("$buildDir/customJacocoReportDir")
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        csv.enabled false
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
-        html.destination "${buildDir}/jacocoHtml"
-    }
-}
-
-test { finalizedBy jacocoTestReport }
-
 compileJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
 }
 
 repositories {
@@ -78,6 +58,26 @@ dependencies {
     compile libraries.logging
     testCompile libraries.testframework
 }
+
+task version {
+    doFirst {
+        println project.version
+    }
+}
+jacoco {
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+test { finalizedBy jacocoTestReport }
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'

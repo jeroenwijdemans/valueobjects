@@ -15,7 +15,7 @@ before_script:
   - chmod +x gradlew
 install: true
 script:
-  - ./cd/test.sh
+  - ./gradlew clean test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 deploy:
@@ -28,10 +28,7 @@ deploy:
     api_key:
       secure: "n3omZCwnEK4FQxqy8b1i6jOcOzFJzY4nLRDXKnQHKC/VfwmHFhRR7Q5duyTtifpX1rehjdxLC9iwbgkmDpNQs+CLKfKjbcCUUG297wSpFSrZCLecDN1njXwK7ZdFsiq+VNebCZzq0EVG6ZLxnOTqAht33dXEQmVi5eGtiYI899bVWrI6wXh7rva+HoiZIJC45gSYhSVByg6yQr8vNOwuYzmUMt1vNBUiy3sxgZmAwYdO3JEsN8N5uwZAow9lmAslAsfVYXPt6HqAHJ4YDgPtYE7CIOl8l2Z2H6n7mpiUhm8GqShc4mwxBeD2qM5qn1LYNdZH3xesevxPVMFbmXzxKR+DdmJGl+gpwSy6HgDF2c0GSsC3XpFYvXqhj9V/kcHG0AwhrCaxwAk46L9yQI5+u14ehg+DAnJcIbWdLyWxO41zNtj3RmJwjx+1DLx1oRGM585PPPjSK4Z7+XnqMWkf8UzDPp/Sfi0j/34w+mncJB3InS1g+mJQyXMO7Q4myhTNnC0/K/p/7EyfgCrhApfZX/kP27NQMmxF/yVspvXDsCu88zfp8UbTofUbqyvTOwLcelTPnvXWy9bzsqq62yHztTUGZsgTz6nJRrMkmKwPVi0xAvA6ktVSKGJuh3qm3rbqpcZKxGBB79qxIfDof8TlHMU3AiNE/AmI9V6zbXYcWLE="
     file_glob: true
-    file:
-      - "build/libs/valueobjects-${VERSION}.jar"
-      - "build/libs/valueobjects-${VERSION}-javadoc.jar"
-      - "build/libs/valueobjects-${VERSION}-sources.jar"
+    file: "build/libs/valueobjects-*"
     skip_cleanup: true
     on:
       branch: master
